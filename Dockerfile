@@ -15,7 +15,7 @@ ENV USER_ID=99
 ENV GROUP_ID=100
 
 # Gui App Name default is "GUI_APPLICATION"
-ENV APP_NAME="Boinc"
+ENV APP_NAME="digiKam"
 
 # Default resolution, change if you like
 ENV WIDTH=1280
@@ -42,8 +42,7 @@ digikam
 #########################################
 
 # Install steps for X app
-ADD firstrun.sh /etc/my_init.d/firstrun.sh
-RUN chmod +x /etc/my_init.d/firstrun.sh
+
 
 # Copy X app start script to right location
 COPY startapp.sh /startapp.sh
