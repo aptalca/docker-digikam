@@ -30,6 +30,7 @@ RUN \
 #########################################
 echo 'deb http://archive.ubuntu.com/ubuntu trusty main universe restricted' > /etc/apt/sources.list && \
 echo 'deb http://archive.ubuntu.com/ubuntu trusty-updates main universe restricted' >> /etc/apt/sources.list && \
+mkdir -p /etc/my_init.d && \
 
 # Install packages needed for app
 export DEBCONF_NONINTERACTIVE_SEEN=true DEBIAN_FRONTEND=noninteractive && \
@@ -46,6 +47,8 @@ digikam
 
 # Copy X app start script to right location
 COPY startapp.sh /startapp.sh
+ADD firstrun.sh /etc/my_init.d/firstrun.sh
+RUN chmod +x /etc/my_init.d/firstrun.sh
 
 #########################################
 ##         EXPORTS AND VOLUMES         ##
