@@ -1,6 +1,6 @@
 
 # Builds a docker gui image
-FROM hurricane/dockergui:xvnc
+FROM hurricane/dockergui:x11rdp
 
 MAINTAINER aptalca
 
@@ -34,6 +34,7 @@ mkdir -p /etc/my_init.d && \
 
 # Install packages needed for app
 export DEBCONF_NONINTERACTIVE_SEEN=true DEBIAN_FRONTEND=noninteractive && \
+add-apt-repository -y ppa:philip5/extra && \
 apt-get update && \
 apt-get install -y \
 digikam
